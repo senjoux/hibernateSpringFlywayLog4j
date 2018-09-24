@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.de.hamza</groupId>
+	<artifactId>hibernateSpringFlywayLog4j</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>hibernateSpringFlywayLog4j</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hibernate.verion>5.2.12.Final</hibernate.verion>
+		<spring.version>5.0.8.RELEASE</spring.version>
+		<mysql.verion>5.1.36</mysql.verion>
+		<log4j.version>2.8.2</log4j.version>
+		<flyway.version>4.2.0</flyway.version>
+	</properties>
+	<dependencies>
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.verion}</version>
+		</dependency>
+		<!-- provides application context (Spring's Dependency Injection Container) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring ORM module which provides Spring integration with Hibernate -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Mysql connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.verion}</version>
+		</dependency>
+		<!-- Tomcat JDBC Connection Pooling, fits better for production mode then 
+			DriverManagerDataSource provided by Spring -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-dbcp</artifactId>
+			<version>9.0.1</version>
+		</dependency>
+		<!--Log4j2 API -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Flyway -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+	</dependencies>
+	<!-- To use the flyway plugin -->
+<!-- 	<build> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.flywaydb</groupId> -->
+<!-- 				<artifactId>flyway-maven-plugin</artifactId> -->
+<!-- 				<version>${flyway.version}</version> -->
+<!-- 				<configuration> -->
+<!-- 					<url>jdbc:mysql://localhost:3306/hibernate5demo</url> -->
+<!-- 					<user>hamza</user> -->
+<!-- 					<password>123</password> -->
+<!-- 					<schemas> -->
+<!-- 						<schema>hibernate5demo</schema> -->
+<!-- 					</schemas> -->
+<!-- 					<locations> -->
+<!-- 						<location>filesystem:src/main/resources/db/migration</location> -->
+<!-- 						<location>classpath:db.migration</location> -->
+<!-- 					</locations> -->
+<!-- 					uncomment if you want to adapt the project to an exsting db schema -->
+<!--  					<baselineOnMigrate>true</baselineOnMigrate> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build> -->
+</project>
